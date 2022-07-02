@@ -1,1 +1,52 @@
-/* You can add global styles to this file, and also import other style files */
+.colorPagina {
+    background-color: #0f1761;
+}
+
+#contenido {
+    padding: 2rem;
+}
+
+.pistaPrincipal {
+    position: relative;
+    z-index: -1;
+}
+
+.positionCarrito1 {
+    position: relative;
+    margin-top: -1000px;
+    margin-left: 120px;
+    z-index: 1;
+    animation-name: movimientoCarritos;
+    animation-duration: 10s;
+}
+
+@keyframes movimientoCarritos {
+    from {
+        margin-left: 120px;
+    } to {
+        margin-left: 1900px;
+    }
+}
+
+.positionCarrito2 {
+    position: relative;
+    margin-top: -720px;
+    margin-left: 120px;
+    z-index: 1;
+    animation-name: movimientoCarritos;
+    animation-duration: 8s;
+}
+
+.positionCarrito3 {
+    position: relative;
+    margin-top: -450px;
+    margin-left: 120px;
+    z-index: 1;
+    animation-name: movimientoCarritos;
+    animation-duration: 12s;
+}
+
+.clearfix {
+    float: none;
+    clear: both;
+}
