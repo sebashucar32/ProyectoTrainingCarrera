@@ -7,6 +7,8 @@ import { SharedModule } from '../shared/shared.module';
 import { AppRoutingModule } from '../app-routing.module';
 import { PagesComponent } from './pages.component';
 
+import { HttpClientModule } from '@angular/common/http';
+
 @NgModule({
   declarations: [
     PagesComponent
@@ -18,7 +20,8 @@ import { PagesComponent } from './pages.component';
     CommonModule,
     FormsModule,
     SharedModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ]
 })
 

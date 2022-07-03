@@ -3,31 +3,31 @@
     <h4 class="text-light font-weight-bold">Inscribir Jugadores</h4>
   </div>
   <div class="menu">
-    <form [formGroup]="registerGame" (ngSubmit)="crearJuego()">
+    <form method="POST">
       <div class="form-group mb-2">
         <div class="col-xs-12">
-          <input class="form-control text-center" type="text" placeholder="Jugador 1" formControlName="jugador1" style="width: 95%;">
+          <input class="form-control text-center" type="text" placeholder="Jugador 1" style="width: 95%;" [(ngModel)]="juego.jugador1" name="jugador1">
         </div>
       </div>
       <div class="form-group mb-2">
         <div class="col-xs-12">
-          <input class="form-control text-center" type="text" placeholder="Jugador 2" formControlName="jugador2" style="width: 95%;">
+          <input class="form-control text-center" type="text" placeholder="Jugador 2" style="width: 95%;" [(ngModel)]="juego.jugador2" name="jugador2">
         </div>
       </div>
       <div class="form-group mb-2">
         <div class="col-xs-12">
-          <input class="form-control text-center" type="text" placeholder="Jugador 3" formControlName="jugador3" style="width: 95%;">
+          <input class="form-control text-center" type="text" placeholder="Jugador 3" style="width: 95%;" [(ngModel)]="juego.jugador3" name="jugador3">
         </div>
       </div>
       <div class="form-group mb-2">
         <div class="col-xs-12">
-          <input class="form-control text-center" type="text" placeholder="Kilometros" formControlName="kilometros" style="width: 95%;">
+          <input class="form-control text-center" type="text" placeholder="Kilometros" style="width: 95%;" [(ngModel)]="juego.kilometros" name="kilometros">
         </div>
       </div>
 
       <div class="form-group text-center m-t-20">
         <div class="col-xs-12">
-          <button class="btn btn-info btn-lg btn-block text-uppercase waves-effect waves-light" type="submit">Iniciar Juego</button>
+          <button type="button" class="btn btn-info btn-lg btn-block text-uppercase waves-effect waves-light" role="button" (click)="crearJuego()">Iniciar Juego</button>
         </div>
       </div>
     </form>
