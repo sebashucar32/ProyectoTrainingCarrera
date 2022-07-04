@@ -5,6 +5,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Juego } from 'src/app/models/Juego';
 import { Podio } from 'src/app/models/Podio';
 import { JuegoService } from 'src/app/services/juego.service';
+import { WebsocketServiceService } from 'src/app/services/websocket-service.service';
 import Swal from 'sweetalert2';
 
 @Component({
@@ -17,7 +18,8 @@ export class SidebarComponent implements OnInit {
   public juego: Juego = new Juego("", "", "", 0, "");
   podios: Podio[] | undefined;
 
-  constructor(private juegoService: JuegoService, private router: Router, private activitedRoute: ActivatedRoute) {}
+  constructor(private juegoService: JuegoService, private router: Router, 
+              private activitedRoute: ActivatedRoute, private webSocketService: WebsocketServiceService) {}
 
   ngOnInit(): void {}
 
@@ -46,10 +48,12 @@ export class SidebarComponent implements OnInit {
     this.juegoService.crearJuego(juegoEnviado).subscribe();
     setTimeout(() => {
       this.iniciarJuego(idJuegoEnviado);
+      this.obtenerDatosJuegoWs(this.juego.juegoId);
     }, 1000);
 
     setTimeout(() => {
       this.resultadosJuego();
+      Swal.fire('Historico mejores Competidores', 'Fin de la carrera');
     }, 12000);
 
     this.router.navigate(['/pista']);
@@ -65,5 +69,12 @@ export class SidebarComponent implements OnInit {
 
   randomJuego(min: number, max: number) {
     return Math.floor(Math.random() * (max - min+1) + min);
+  }
+
+  obtenerDatosJuegoWs(juegoId: String) {
+    this.webSocketService.iniciar(juegoId);
+    this.webSocketService.messages?.subscribe((msg) => {
+      console.log(msg);
+    });
   }
 }
