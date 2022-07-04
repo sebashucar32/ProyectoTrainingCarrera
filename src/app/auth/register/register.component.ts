@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthenticationService } from '../../shared/services/authentication.service';
+
 
 @Component({
   selector: 'app-register',
@@ -7,9 +9,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RegisterComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    public authService: AuthenticationService
+  ) { }
 
   ngOnInit(): void {
+    this.authService.isLoggedIn? this.authService.router.navigate(['principal']):"";
   }
 
 }
