@@ -12,6 +12,14 @@ import { RegisterComponent } from './auth/register/register.component';
 import { PistaComponent } from './components/pista/pista.component';
 import { ErrorComponent } from './error/error.component';
 import { PagesModule } from './pages/pages.module';
+import { ResetAccountComponent } from './auth/reset-account/reset-account.component';
+
+import { AngularFireModule } from '@angular/fire/compat';
+import { AngularFireAuthModule } from '@angular/fire/compat/auth';
+import { AngularFireStorageModule } from '@angular/fire/compat/storage';
+import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
+import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
+import { environment } from 'src/environments/environment';
 
 @NgModule({
   declarations: [
@@ -19,7 +27,8 @@ import { PagesModule } from './pages/pages.module';
     LoginComponent,
     RegisterComponent,
     ErrorComponent,
-    PistaComponent
+    PistaComponent,
+    ResetAccountComponent
   ],
   imports: [
     BrowserModule,
@@ -28,7 +37,13 @@ import { PagesModule } from './pages/pages.module';
     RouterModule,
     PagesModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFireAuthModule,
+    AngularFirestoreModule,
+    AngularFireStorageModule,
+    AngularFireDatabaseModule,
+
   ],
   providers: [],
   bootstrap: [AppComponent]

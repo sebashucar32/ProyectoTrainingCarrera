@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "challenge-desarrollo-web": {
+      "hosting": {
+        "ProyectoTrainingCarreras": [
+          "challenge-desarrollo-web"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "challenge-desarrollo-web"
+  }
+}
