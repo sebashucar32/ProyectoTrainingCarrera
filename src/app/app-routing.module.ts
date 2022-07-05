@@ -13,7 +13,7 @@ const routes: Routes = [
   { path: 'register', component: RegisterComponent},
   { path: 'restAccount', component: ResetAccountComponent},
   { path: 'principal', component: ResetAccountComponent},
-  { path: '**', pathMatch: 'full', redirectTo:'principal'}
+  { path: '**', pathMatch: 'full', redirectTo:'login'}
 ];
 
 @NgModule({

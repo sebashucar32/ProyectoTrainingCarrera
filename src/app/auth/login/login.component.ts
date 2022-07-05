@@ -13,7 +13,7 @@ export class LoginComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.authService.isLoggedIn? this.authService.router.navigate(['home']):"";
+    this.authService.isLoggedIn? this.authService.router.navigate(['principal']):"";
   }
 
 }

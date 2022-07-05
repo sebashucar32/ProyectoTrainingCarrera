@@ -37,7 +37,7 @@ export class AuthenticationService {
       .signInWithEmailAndPassword(email, password)
       .then((result) => {
         console.log("ingresó")
-        this.router.navigate(['home']);
+        this.router.navigate(['principal']);
         this.SetUserData(result.user);
       })
       .catch((error) => {
@@ -86,7 +86,7 @@ export class AuthenticationService {
     return this.AuthLogin(new auth.GoogleAuthProvider()).then((result: any) => {
       if (result) {
         this.SetUserData(result.user);
-        this.router.navigate(['home']);
+        this.router.navigate(['principal']);
       }
     });
   }
@@ -95,7 +95,7 @@ export class AuthenticationService {
     return this.authentication
       .signInWithPopup(provider)
       .then((result) => {
-        this.router.navigate(['home']);
+        this.router.navigate(['principal']);
         this.SetUserData(result.user);
       })
       .catch((error) => {
