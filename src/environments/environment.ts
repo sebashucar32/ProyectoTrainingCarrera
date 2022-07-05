@@ -13,7 +13,7 @@ export const environment = {
     measurementId: 'G-ZSHQ2V0621',
   },
   production: false,
-  base_url: 'http://localhost:8080'
+  base_url: 'https://challenge-desarrollo-web.herokuapp.com'
 };
 
 /*
